@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-accent: #C87634;    /* Burnt Orange */
+  --text-color: #2E2E2E;        /* Dark Gray */
+  --background: #FAFAFA;        /* Off-White */
+  --secondary: #333333;         /* Charcoal */
+  --hover-cta: #A15826;         /* Deep Orange */
+  --light-gray: #EAEAEA;        /* Light Gray */
+}
+
+/* Base styles */
+/* body {
+  color: var(--text-color);
+  background-color: var(--background);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+} */
+
+/* Navigation */
+/* .navbar {
+  background-color: var(--secondary);
+  padding: 1rem 2rem;
+} */
+
+.navbar a {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-accent);
+  text-decoration: none;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary-accent);
+  border-color: var(--primary-accent);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--hover-cta);
+  border-color: var(--hover-cta);
+}
+
+/* Forms */
+input, textarea {
+  background-color: var(--light-gray);
+  border: 1px solid var(--light-gray);
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--primary-accent);
+  outline: none;
+}
+
+/* Footer */
+/* .footer {
+  background-color: var(--secondary);
+  color: white;
+  padding: 2rem 0;
+} */
+
+/* Cards */
+/* .card {
+  background-color: white;
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  padding: 1.5rem;
+} */
+
+/* Dividers */
+.divider {
+  border-bottom: 1px solid var(--light-gray);
+  margin: 2rem 0;
+}
+
+/* Links */
+a {
+  color: var(--primary-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--hover-cta);
+  text-decoration: underline;
+}
