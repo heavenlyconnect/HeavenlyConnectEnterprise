@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { Menu, X } from 'react-feather';
+import { Menu, X, Globe } from 'react-feather';
 import CustomLink from './CustomLink';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,18 +65,54 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* CTA Button */}
-            <motion.a
-              href="#contact"
-              whileHover={{
-                scale: 1.05,
-                boxShadow: '0 4px 14px rgba(200, 118, 52, 0.3)' // Primary accent RGBA
-              }}
-              whileTap={{ scale: 0.98 }}
-              className="hidden md:block bg-gradient-to-r from-primary-accent to-hover-cta text-white px-6 py-2 rounded-full font-medium shadow-sm"
-            >
-              Get Started
-            </motion.a>
+            {/* Right Side Elements */}
+            <div className="hidden md:flex items-center gap-4">
+              {/* Language Dropdown */}
+              <div className="relative">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setLanguageMenuOpen(!languageMenuOpen)}
+                  className="p-2 rounded-lg text-gray-300 hover:text-orange-500 transition-colors"
+                >
+                  <Globe className="w-5 h-5" />
+                </motion.button>
+
+                {languageMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg py-2 z-50"
+                  >
+                    {['English', 'French', 'German'].map((lang) => (
+                      <button
+                        key={lang}
+                        onClick={() => {
+                          // Handle language change here
+                          setLanguageMenuOpen(false);
+                        }}
+                        className="w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-left"
+                      >
+                        {lang}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </div>
+
+              {/* CTA Button */}
+              <motion.a
+                href="#contact"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: '0 4px 14px rgba(200, 118, 52, 0.3)'
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="bg-gradient-to-r from-primary-accent to-hover-cta text-white px-6 py-2 rounded-full font-medium shadow-sm"
+              >
+                Get Started
+              </motion.a>
+            </div>
 
             {/* Mobile Menu Button */}
             <motion.button
@@ -103,16 +140,36 @@ const Navbar = () => {
           >
             <div className="px-6 py-4 space-y-4">
               {navItems.map((item) => (
-                <motion.a
+                <CustomLink
                   key={item.name}
-                  href={item.href}
+                  to={item.path}
+                  section={item.section}
                   whileTap={{ scale: 0.98 }}
                   className="block py-2 text-text-color font-medium hover:text-primary-accent transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
-                </motion.a>
+                </CustomLink>
               ))}
+
+              {/* Mobile Language Options */}
+              <div className="mt-4 border-t border-gray-200 pt-4">
+                <p className="text-sm font-medium text-gray-500 pb-2">Language</p>
+                {['English', 'French', 'German'].map((lang) => (
+                  <motion.button
+                    key={lang}
+                    whileTap={{ scale: 0.98 }}
+                    className="block w-full py-2 text-left text-text-color hover:text-primary-accent"
+                    onClick={() => {
+                      // Handle language change
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    {lang}
+                  </motion.button>
+                ))}
+              </div>
+
               <motion.a
                 href="#contact"
                 whileTap={{ scale: 0.95 }}

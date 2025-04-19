@@ -55,7 +55,7 @@ const About = ({id}) => {
                         <p className="text-lg text-text-color/80">
                             We believe work should be fulfilling and collaborative, creating value for both employers and employees.
                         </p>
-                        <div className="h-1 w-20 bg-primary-accent rounded-full"></div>
+                        <div className="h-1 w-20 line-color bg-primary-accent rounded-full"></div>
                     </motion.div>
 
                     {/* Right Column */}
@@ -102,19 +102,50 @@ const About = ({id}) => {
                     </motion.div>
                 </motion.div>
 
-                {/* Mission Statement */}
-                <motion.div
-                    variants={itemVariants}
-                    className="mt-20 text-center max-w-3xl mx-auto"
-                >
-                    <div className="inline-flex items-center text-primary-accent mb-4">
-                        <div className="h-1 w-12 bg-primary-accent mr-4"></div>
-                        <span className="font-semibold">Our Mission</span>
-                    </div>
-                    <p className="text-2xl text-text-color/80 leading-relaxed">
-                        "To provide expert migration guidance with clarity and confidence, offering resource-oriented solutions that combine flexibility, security, and affordability."
-                    </p>
-                </motion.div>
+                {/* Mission Statement with Image */}
+<motion.div 
+    variants={containerVariants}
+    className="py-20 px-4 sm:px-6 lg:px-8"
+>
+    <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        {/* Image Section */}
+        <motion.div 
+            variants={itemVariants}
+            className="lg:w-1/2 relative rounded-2xl overflow-hidden shadow-xl"
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300 }}
+        >
+            <img 
+                src="https://res.cloudinary.com/dbr5uxfze/image/upload/v1745100631/iStock-1212241550_g3pra9.jpg" 
+                alt="Our team assisting clients" 
+                className="w-full h-96 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/30 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background/50 to-transparent"></div>
+        </motion.div>
+
+        {/* Text Content */}
+        <motion.div 
+            variants={itemVariants}
+            className="lg:w-1/2 text-center lg:text-left"
+        >
+            <div className="inline-flex items-center text-primary-accent mb-4">
+                <div className="h-1 w-12 line-color bg-primary-accent mr-4"></div>
+                <span className="font-semibold">Our Mission</span>
+            </div>
+            <p className="text-2xl text-text-color/80 leading-relaxed mb-6">
+                "To provide expert migration guidance with clarity and confidence, offering resource-oriented solutions that combine flexibility, security, and affordability."
+            </p>
+            <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-primary-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-hover-cta transition-all"
+            >
+                Meet Our Team
+            </motion.button>
+        </motion.div>
+    </div>
+</motion.div>
             </div>
         </motion.section>
     );

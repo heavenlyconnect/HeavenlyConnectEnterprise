@@ -17,15 +17,12 @@ function Home() {
   const location = useLocation();
 
   useEffect(() => {
-    // Check for section in state (from navigation) or hash (direct URL)
-    const targetSection = location.state?.targetSection || location.hash;
-    
-    if (targetSection) {
-      setTimeout(() => {
-        scrollToSection(targetSection);
-      }, 300);
+    if (location.state?.targetSection) {
+      scrollToSection(location.state.targetSection);
+      // Clear the state after scrolling
+      window.history.replaceState({}, document.title);
     }
-  }, [location]);
+  }, [location.state]);
 
   return (
     <div className="min-h-screen bg-white text-gray-800 flex flex-col">

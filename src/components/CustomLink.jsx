@@ -1,25 +1,36 @@
-// 1. Create a custom link component (src/components/CustomLink.jsx)
-import { Link } from 'react-router-dom';
+// src/components/CustomLink.jsx
+import { Link, useNavigate } from 'react-router-dom';
 import { scrollToSection } from '../utils/scrollUtils';
+import { useEffect } from 'react';
 
-const CustomLink = ({ to, section, children }) => {
+const CustomLink = ({ to, section, children, className, onClick }) => {
+  const navigate = useNavigate();
+
   const handleClick = (e) => {
+    e.preventDefault();
+    
     if (window.location.pathname !== '/') {
-      // If not on homepage, navigate first then scroll
-      e.preventDefault();
-      window.location.href = `/${to}`;
-      setTimeout(() => scrollToSection(section), 100);
+      // Navigate to homepage first while preserving scroll position
+      navigate('/', { 
+        state: { targetSection: section },
+        replace: true
+      });
     } else {
-      // If already on homepage, just scroll
-      e.preventDefault();
+      // If already on homepage, scroll directly
       scrollToSection(section);
+    }
+
+    // Close mobile menu if present
+    if (typeof onClick === 'function') {
+      onClick();
     }
   };
 
   return (
-    <Link 
-      to={to} 
+    <Link
+      to={to}
       onClick={handleClick}
+      className={className}
       state={{ targetSection: section }}
     >
       {children}

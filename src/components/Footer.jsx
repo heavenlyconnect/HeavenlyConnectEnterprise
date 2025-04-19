@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Linkedin } from 'react-feather';
+import { Mail, Phone, MapPin, Facebook, Instagram, MessageCircle } from 'react-feather';
 
 const Footer = () => {
     const footerVariants = {
@@ -27,8 +27,8 @@ const Footer = () => {
 
     const socialLinks = [
         // { icon: Facebook, url: "#" },
-        { icon: Instagram, url: "#" },
-        // { icon: Tiktok, url: "#" },
+        { icon: Instagram, url: "https://www.instagram.com/heavenlyconnectenterprise" },
+        // { icon: Whatsapp, url: "#" },
         // { icon: Twitter, url: "#" },
         // { icon: Linkedin, url: "#" }
     ];
@@ -43,9 +43,9 @@ const Footer = () => {
     ];
 
     const contactInfo = [
-        { icon: Mail, text: "info@heavenlyconnectenterprise.com" },
-        { icon: Phone, text: "+234 815 234 5632" },
-        { icon: MapPin, text: "123 Migration St, Lagos, Nigeria" }
+        { icon: Mail, text: "info@heavenlyconnectenterprise.com", url: "mailto:info@heavenlyconnectenterprise.com" },
+        { icon: MessageCircle, text: "+49 15568 691709", url: "https://wa.me/message/YR6QDN7L4HZSL1" },
+        { icon: MapPin, text: "Bielefeld, Germany", url: "#" },
     ];
 
     return (
@@ -68,6 +68,7 @@ const Footer = () => {
                         <p className="mb-6 text-gray-400">
                             Your trusted partner for global migration and labor solutions with a human touch.
                         </p>
+                        <p>#TheWayToOpportunities</p>
                         <div className="flex space-x-4">
                             {socialLinks.map((social, index) => (
                                 <motion.a
@@ -118,14 +119,14 @@ const Footer = () => {
                                     whileHover={{ x: 5 }}
                                 >
                                     <info.icon className="w-5 h-5 text-primary-accent mt-0.5 mr-3 flex-shrink-0" />
-                                    <span className="text-gray-400">{info.text}</span>
+                                    <a href={info.url} className="text-gray-400">{info.text}</a>
                                 </motion.li>
                             ))}
                         </ul>
                     </motion.div>
 
                     {/* Newsletter */}
-                    <motion.div variants={itemVariants}>
+                    {/* <motion.div variants={itemVariants}>
                         <h4 className="text-lg font-semibold text-white mb-6">Newsletter</h4>
                         <p className="text-gray-400 mb-4">
                             Subscribe to our newsletter for the latest updates and offers.
@@ -144,7 +145,7 @@ const Footer = () => {
                                 Subscribe
                             </motion.button>
                         </div>
-                    </motion.div>
+                    </motion.div> */}
                 </div>
 
                 {/* Copyright */}

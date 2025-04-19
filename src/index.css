@@ -96,3 +96,10 @@ a:hover {
   color: var(--hover-cta);
   text-decoration: none;
 }
+
+/* In your CSS */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 80px; /* Height of your mobile header */
+  }
+}

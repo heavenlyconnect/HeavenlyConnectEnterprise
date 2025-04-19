@@ -43,7 +43,11 @@ const FAQ = ({id}) => {
     },
     {
       question: "Can I consult with an expert before committing?",
-      answer: "Absolutely! We offer free initial consultations to understand your needs and explain our process."
+      answer: "Absolutely! We offer initial consultations(at N20,000 cost/consultation) to understand your needs and explain our process."
+    },
+    {
+      question: "Which countries do you provide services for?",
+      answer: "We currently specialize in immigration processes for Canada, Germany, Poland, United States, and the United Kingdom. Our services also cover 10+ other countries across Europe, North America, and Oceania - contact us to confirm availability for your specific destination."
     }
   ];
 

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { MessageSquare, Calendar, FileText, Zap } from 'react-feather';
 
-const Process = ({id}) => {
+const Process = ({ id }) => {
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -28,27 +28,31 @@ const Process = ({id}) => {
     const steps = [
         {
             title: "Initial Consultation",
-            description: "Free preliminary discussion to understand your needs",
+            description: "Preliminary discussion to understand your needs",
             icon: MessageSquare,
-            color: "bg-primary-accent/20"
+            color: "bg-primary-accent/20",
+            image: "https://res.cloudinary.com/dbr5uxfze/image/upload/v1745100717/iStock-1201798767_k9h7ou.jpg"
         },
         {
             title: "Expert Assessment",
             description: "Comprehensive evaluation by our specialists",
             icon: Calendar,
-            color: "bg-primary-accent/20"
+            color: "bg-primary-accent/20",
+            image: "https://res.cloudinary.com/dbr5uxfze/image/upload/v1745102155/iStock-1355302972_rtcisw.jpg"
         },
         {
             title: "Custom Plan",
             description: "Tailored migration strategy development",
             icon: FileText,
-            color: "bg-primary-accent/20"
+            color: "bg-primary-accent/20",
+            image: "https://res.cloudinary.com/dbr5uxfze/image/upload/v1745102148/iStock-1972501160_lfwkm5.jpg"
         },
         {
             title: "Journey Begins",
             description: "Implementation and ongoing support",
             icon: Zap,
-            color: "bg-primary-accent/20"
+            color: "bg-primary-accent/20",
+            image: "https://res.cloudinary.com/dbr5uxfze/image/upload/v1745102156/iStock-1644224807_koltis.jpg"
         }
     ];
 
@@ -93,21 +97,35 @@ const Process = ({id}) => {
                                         <div className="hidden md:block absolute top-16 right-[-33%] line-color w-1/2 h-1 bg-light-gray group-hover:bg-primary-accent/30 transition-colors"></div>
                                     )}
 
-                                    <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-transparent hover:border-light-gray">
-                                        <div className={`w-16 h-16 ${step.color} rounded-xl mb-6 flex items-center justify-center`}>
-                                            <step.icon className="w-8 h-8 text-primary-accent icon-color" />
+                                    <div className="relative p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all overflow-hidden">
+                                        {/* Background Image */}
+                                        <div className="absolute inset-0 z-0">
+                                            <img
+                                                src={step.image}
+                                                alt={step.title}
+                                                className="w-full h-full object-cover brightness-56"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+                                            <div className="absolute inset-0 mix-blend-overlay bg-primary-accent/10"></div>
                                         </div>
-                                        <div className="flex items-center mb-4">
-                                            <div className="w-8 h-8 number-color text-white rounded-full flex items-center justify-center mr-3">
-                                                {index + 1}
+
+                                        {/* Content */}
+                                        <div className="relative z-10">
+                                            <div className={`w-16 h-16 ${step.color} rounded-xl mb-6 flex items-center justify-center backdrop-blur-sm bg-white/10`}>
+                                                <step.icon className="w-8 h-8 text-primary-accent icon-color" />
                                             </div>
-                                            <h3 className="text-xl font-semibold text-text-color">
-                                                {step.title}
-                                            </h3>
+                                            <div className="flex items-center mb-4">
+                                                <div className="w-8 h-8 bg-primary-accent text-white rounded-full flex items-center justify-center mr-3 backdrop-blur-lg">
+                                                    {index + 1}
+                                                </div>
+                                                <h3 className="text-xl font-semibold text-white">
+                                                    {step.title}
+                                                </h3>
+                                            </div>
+                                            <p className="text-text-color/80 leading-relaxed text-white bg-background/80 p-4 rounded-lg">
+                                                {step.description}
+                                            </p>
                                         </div>
-                                        <p className="text-text-color/80 leading-relaxed">
-                                            {step.description}
-                                        </p>
                                     </div>
                                 </motion.div>
                             ))}

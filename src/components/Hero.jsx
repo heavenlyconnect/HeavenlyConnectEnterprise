@@ -48,67 +48,97 @@ const HeroSection = () => {
             </div>
 
             <div className="max-w-7xl mx-auto relative">
-                <div className="text-center">
-                    <motion.h1
-                        variants={itemVariants}
-                        className="text-4xl sm:text-6xl font-bold mb-6 text-text-color leading-tight"
-                    >
-                        <span className="block">Your Pathway to</span>
-                        <span className="relative inline-block">
-                            <span className="relative z-10">Global Opportunities</span>
-                            <motion.span
-                                initial={{ scaleX: 0 }}
-                                animate={{ scaleX: 1 }}
-                                transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
-                                className="absolute bottom-0 left-0 w-full h-3 bg-primary-accent/30 z-0 transform origin-left"
-                            />
-                        </span>
-                    </motion.h1>
-
-                    <motion.p
-                        variants={itemVariants}
-                        className="text-xl sm:text-2xl mb-10 text-text-color/80 max-w-3xl mx-auto"
-                    >
-                        Expert migration consulting and tailored labor solutions with a human touch
-                    </motion.p>
-
-                    <motion.div variants={itemVariants}>
-                        <motion.a
-                            variants={buttonVariants}
-                            whileHover="hover"
-                            whileTap="tap"
-                            href="#contact"
-                            className="inline-flex items-center bg-primary-accent text-white px-8 py-4 rounded-lg font-medium hover:bg-hover-cta transition-all shadow-lg hover:shadow-primary-accent/30"
-                        >
-                            Start Your Journey
-                            <ArrowRight className="ml-2 w-5 h-5" />
-                        </motion.a>
-                    </motion.div>
-
-                    {/* Stats section */}
+                <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-16">
+                    {/* Text Content */}
                     <motion.div
                         variants={itemVariants}
-                        className="mt-16 flex flex-wrap justify-center gap-8"
+                        className="md:w-1/2 text-center md:text-left"
                     >
-                        {[
-                            { value: "10K+", label: "Successful Cases" },
-                            { value: "25+", label: "Countries" },
-                            { value: "98%", label: "Satisfaction Rate" }
-                        ].map((stat, index) => (
-                            <div key={index} className="text-center">
-                                <motion.p
-                                    initial={{ scale: 0.9 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ delay: 1 + index * 0.2 }}
-                                    className="text-3xl font-bold text-primary-accent mb-1"
-                                >
-                                    {stat.value}
-                                </motion.p>
-                                <p className="text-text-color/80">{stat.label}</p>
-                            </div>
-                        ))}
+                        <motion.h1
+                            variants={itemVariants}
+                            className="text-4xl sm:text-6xl font-bold mb-6 text-text-color leading-tight"
+                        >
+                            <span className="block">Your Pathway to</span>
+                            <span className="relative inline-block">
+                                <span className="relative z-10">Global Opportunities</span>
+                                <motion.span
+                                    initial={{ scaleX: 0 }}
+                                    animate={{ scaleX: 1 }}
+                                    transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+                                    className="absolute bottom-0 left-0 w-full h-3 bg-primary-accent/30 z-0 transform origin-left"
+                                />
+                            </span>
+                        </motion.h1>
+
+                        <motion.p
+                            variants={itemVariants}
+                            className="text-xl sm:text-2xl mb-10 text-text-color/80 max-w-3xl mx-auto md:mx-0"
+                        >
+                            Expert migration consulting and tailored labor solutions with a human touch
+                        </motion.p>
+
+                        <motion.div variants={itemVariants} className="md:flex md:justify-start">
+                            <motion.a
+                                variants={buttonVariants}
+                                whileHover="hover"
+                                whileTap="tap"
+                                href="#contact"
+                                className="inline-flex items-center bg-primary-accent text-white px-8 py-4 rounded-lg font-medium hover:bg-hover-cta transition-all shadow-lg hover:shadow-primary-accent/30"
+                            >
+                                Start Your Journey
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </motion.a>
+                        </motion.div>
+                    </motion.div>
+
+                    {/* Image Container */}
+                    <motion.div
+                        variants={{
+                            hidden: { opacity: 0, x: 50 },
+                            visible: { opacity: 1, x: 0 }
+                        }}
+                        transition={{ delay: 0.2 }}
+                        className="md:w-1/2 relative mt-12 md:mt-0"
+                    >
+                        <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                            <img
+                                src="https://res.cloudinary.com/dbr5uxfze/image/upload/v1745102152/iStock-1204743098_fwcge2.jpg"
+                                alt="Global opportunities illustration"
+                                className="w-full h-auto object-cover rounded-2xl"
+                            />
+
+                            {/* Optional image decorative elements */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-background/20 to-transparent"></div>
+                            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background/50 to-transparent"></div>
+                        </div>
                     </motion.div>
                 </div>
+
+                {/* Stats section - Updated positioning */}
+                <motion.div
+                    variants={itemVariants}
+                    className="mt-16 flex flex-wrap justify-center gap-8"
+                >
+                    {[
+                        { value: "10+", label: "Countries" },
+                        { value: "98%", label: "Satisfaction Rate" },
+                        { value: "24/7", label: "Support" },
+                        { value: "100%", label: "Transparency" },
+                        { value: "5+", label: "Years of Experience" }
+                    ].map((stat, index) => (
+                        <div key={index} className="text-center">
+                            <motion.p
+                                initial={{ scale: 0.9 }}
+                                animate={{ scale: 1 }}
+                                transition={{ delay: 1 + index * 0.2 }}
+                                className="text-3xl font-bold text-primary-accent mb-1"
+                            >
+                                {stat.value}
+                            </motion.p>
+                            <p className="text-text-color/80">{stat.label}</p>
+                        </div>
+                    ))}
+                </motion.div>
             </div>
         </motion.section>
     );
