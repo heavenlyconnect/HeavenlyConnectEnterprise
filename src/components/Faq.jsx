@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown, HelpCircle } from 'react-feather';
 import { useState } from 'react';
 
-const FAQ = () => {
+const FAQ = ({id}) => {
   const [activeIndex, setActiveIndex] = useState(null);
   
   const containerVariants = {
@@ -48,7 +48,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background to-background/80">
+    <section id={id} className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background to-background/80">
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary-accent/10 rounded-full mix-blend-multiply filter blur-3xl opacity-15"></div>

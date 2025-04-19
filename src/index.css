@@ -13,19 +13,6 @@
   --light-gray: #EAEAEA;        /* Light Gray */
 }
 
-/* Base styles */
-/* body {
-  color: var(--text-color);
-  background-color: var(--background);
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-} */
-
-/* Navigation */
-/* .navbar {
-  background-color: var(--secondary);
-  padding: 1rem 2rem;
-} */
-
 .navbar a {
   color: white;
   transition: color 0.3s ease;
@@ -34,6 +21,20 @@
 .navbar a:hover {
   color: var(--primary-accent);
   text-decoration: none;
+}
+
+h2, h4 {
+  color: var(--primary-accent);
+}
+
+.icon-color {
+  color: var(--primary-accent);
+  transition: color 0.3s ease;
+}
+
+.line-color, .number-color {
+  background-color: var(--primary-accent);
+  transition: color 0.3s ease;
 }
 
 /* Buttons */
@@ -93,5 +94,5 @@ a {
 
 a:hover {
   color: var(--hover-cta);
-  text-decoration: underline;
+  text-decoration: none;
 }

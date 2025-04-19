@@ -13,7 +13,7 @@ const Calendly = () => {
         rootElement={document.getElementById("root")}
         text="Click here to schedule!"
         textColor="#ffffff"
-        color="#00a2ff"
+        color="#C87634"
       />
     </div>
   );
