@@ -3,14 +3,24 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import { Star } from "react-feather";
 import { initReactI18next, Trans } from "react-i18next";
 import About from "../components/About";
+import FAQ from "../components/Faq";
 
 
 i18n.use(LanguageDetector).use(initReactI18next).init({
     debug: true,
-    lng: "de", 
+    lng: "de",
     resources: {
         en: {
             translation: {
+                AboutUs: "About Us",
+                Commitment: "Commitment",
+                HowItWorks: "How It Works",
+                Faq: "FAQ",
+                Contact: "Contact",
+                GetStarted: "Get Started",
+                English: "English",
+                German: "German",
+                French: "French",
                 heroheaderOne: "Your Pathway to",
                 heroheaderTwo: "Global Opportunities",
                 headerContent: "Expert migration consulting and tailored labor solutions with a human touch",
@@ -30,10 +40,56 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 SecureOpportunitiesContent: "Developing secure, enriching jobs tailored to individual needs",
                 OurCommitment: "Our Commitment",
                 OurCommitmentContent: "Quality through transparency, reliability, and flexible solutions",
+                //Mission
+                OurMission: "Our Mission",
+                OurMissionContent: "To provide expert migration guidance with clarity and confidence, offering resource-oriented solutions that combine flexibility, security, and affordability.",
+                //Core Commitments
+                OurCoreCommitments: "Our Core Commitments",
+                TransparentProcess: "Transparent Process",
+                TransparentProcessContent: "Clear guidance at every step with no hidden surprises",
+                PersonalSupport: "Personal Support",
+                PersonalSupportContent: "Dedicated consultant throughout your journey",
+                SecureHandling: "Secure Handling",
+                SecureHandlingContent: "Enterprise-grade data protection & privacy  ",
+                //Process
+                InitialConsultation: "Initial Consultation",
+                InitialConsultationContent: "Preliminary discussion to understand your needs",
+                ExpertAssessment: "Expert Assessment",
+                ExpertAssessmentContent: "Comprehensive evaluation by our specialists",
+                CustomPlan: "Custom Plan",
+                CustomPlanContent: "Tailored migration strategy development",
+                JourneyBegins: "Journey Begins",
+                JourneyBeginsContent: "Implementation and ongoing support",
+                //FAQ
+                FAQs: "FAQs",
+                CommonQuestions: "Common Questions",
+                CommonQuestionsContent: "Find quick answers to frequent inquiries about our services and processes",
+                //FAQ Items
+                FAQItem1: "How long does the migration process typically take?",
+                FAQItem1Answer: "Processing times vary based on individual circumstances and destination countries. Our experts provide personalized timelines after evaluating your specific case. ",
+                FAQItem2: "What makes Heavenly Connect different from other agencies?",
+                FAQItem2Answer: "We combine expert knowledge with personalized service, offering end-to-end support and maintaining complete transparency throughout your journey.",
+                FAQItem3: "Is my personal information secure?",
+                FAQItem3Answer: "Yes, we use enterprise-grade encryption and follow strict data protection protocols to ensure your information remains confidential.",
+                FAQItem4: "Can I consult with an expert before committing?",
+                FAQItem4Answer: "Absolutely! We offer initial consultations(at N20,000 cost/consultation) to understand your needs and explain our process.",
+                FAQItem5: "Which countries do you provide services for?",
+                FAQItem5Answer: "We currently specialize in immigration processes for Canada, Germany, Poland, United States, and the United Kingdom. Our services also cover 10+ other countries across Europe, North America, and Oceania - contact us to confirm availability for your specific destination.",
+                // Calendly
+                CalendlyText: "Click here to schedule!",
             },
         },
         fr: {
             translation: {
+                AboutUs: "À propos de nous",
+                Commitment: "Engagement",
+                HowItWorks: "Comment ça marche",
+                Faq: "FAQ",
+                Contact: "Contact",
+                GetStarted: "Commencer",
+                English: "Anglais",
+                German: "Allemand",
+                French: "Français",
                 heroheaderOne: "Votre passerelle vers",
                 heroheaderTwo: "des opportunités mondiales",
                 headerContent: "Consultation en migration experte et solutions de travail sur mesure avec une touche humaine",
@@ -53,10 +109,56 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 SecureOpportunitiesContent: "Développer des emplois sécurisés et enrichissants adaptés aux besoins individuels",
                 OurCommitment: "Notre engagement",
                 OurCommitmentContent: "Qualité grâce à la transparence, à la fiabilité et à des solutions flexibles",
+                //Mission
+                OurMission: "Notre mission",
+                OurMissionContent: "Fournir des conseils d'experts en matière de migration avec clarté et confiance, en offrant des solutions orientées ressources qui allient flexibilité, sécurité et rentabilité.",
+                //Core Commitments
+                OurCoreCommitments: "Nos engagements fondamentaux",
+                TransparentProcess: "Processus transparent",
+                TransparentProcessContent: "Conseils clairs à chaque étape sans surprises cachées",
+                PersonalSupport: "Soutien personnel",
+                PersonalSupportContent: "Consultant dédié tout au long de votre parcours",
+                SecureHandling: "Gestion sécurisée",
+                SecureHandlingContent: "Protection et confidentialité des données de niveau entreprise",
+                //Process
+                InitialConsultation: "Consultation initiale",
+                InitialConsultationContent: "Discussion préliminaire pour comprendre vos besoins",
+                ExpertAssessment: "Évaluation d'expert",
+                ExpertAssessmentContent: "Évaluation complète par nos spécialistes",
+                CustomPlan: "Plan personnalisé",
+                CustomPlanContent: "Développement d'une stratégie de migration sur mesure",
+                JourneyBegins: "Le voyage commence",
+                JourneyBeginsContent: "Mise en œuvre et soutien continu",
+                //FAQ
+                FAQs: "FAQ",
+                CommonQuestions: "Questions courantes",
+                CommonQuestionsContent: "Trouvez des réponses rapides aux demandes fréquentes concernant nos services et processus",
+                //FAQ Items
+                FAQItem1: "Combien de temps dure généralement le processus de migration ?",
+                FAQItem1Answer: "Les délais de traitement varient selon les circonstances individuelles et les pays de destination. Nos experts fournissent des délais personnalisés après avoir évalué votre cas spécifique.",
+                FAQItem2: "Qu'est-ce qui différencie Heavenly Connect des autres agences ?",
+                FAQItem2Answer: "Nous combinons expertise et service personnalisé, offrant un accompagnement complet et une transparence totale tout au long de votre parcours.",
+                FAQItem3: "Mes informations personnelles sont-elles sécurisées ?",
+                FAQItem3Answer: "Oui, nous utilisons un chiffrement de niveau professionnel et suivons des protocoles stricts de protection des données pour garantir la confidentialité de vos informations.",
+                FAQItem4: "Puis-je consulter un expert avant de m'engager ?",
+                FAQItem4Answer: "Absolument ! Nous proposons des consultations initiales (coût de 20 000 NGN par consultation) pour comprendre vos besoins et vous expliquer notre processus.",
+                FAQItem5: "Pour quels pays proposez-vous vos services ?",
+                FAQItem5Answer: "Nous sommes actuellement spécialisés dans les processus d'immigration pour le Canada, l'Allemagne, la Pologne, les États-Unis et le Royaume-Uni. Nos services couvrent également plus de 10 autres pays en Europe, Amérique du Nord et Océanie - contactez-nous pour confirmer la disponibilité pour votre destination spécifique.",
+                // Calendly
+                CalendlyText: "Cliquez ici pour planifier !",
             },
         },
         de: {
             translation: {
+                AboutUs: "Über uns",
+                Commitment: "Engagement",
+                HowItWorks: "Wie es funktioniert",
+                Faq: "FAQ",
+                Contact: "Kontakt",
+                GetStarted: "Loslegen",
+                English: "Englisch",
+                German: "Deutsch",
+                French: "Französisch",
                 heroheaderOne: "Ihr Weg zu",
                 heroheaderTwo: "globalen Möglichkeiten",
                 headerContent: "Expertenberatung zur Migration und solutions de travail sur mesure avec une touche humaine",
@@ -76,6 +178,43 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
                 SecureOpportunitiesContent: "Entwicklung sicherer, bereichernder Arbeitsplätze, die auf individuelle Bedürfnisse zugeschnitten sind",
                 OurCommitment: "Unser Engagement",
                 OurCommitmentContent: "Qualität durch Transparenz, Zuverlässigkeit und flexible Lösungen",
+                //Mission
+                OurMission: "Unsere Mission",
+                OurMissionContent: "Expertenberatung zur Migration mit Klarheit und Vertrauen zu bieten, indem ressourcenorientierte Lösungen angeboten werden, die Flexibilität, Sicherheit und Erschwinglichkeit vereinen.",
+                //Core Commitments
+                OurCoreCommitments: "Unsere Kernverpflichtungen",
+                TransparentProcess: "Transparenter Prozess",
+                TransparentProcessContent: "Klare Anleitung in jedem Schritt ohne versteckte Überraschungen",
+                PersonalSupport: "Persönliche Unterstützung",
+                PersonalSupportContent: "Engagierter Berater während Ihrer gesamten Reise",
+                SecureHandling: "Sichere Handhabung",
+                SecureHandlingContent: "Datenschutz und Datensicherheit auf Unternehmensniveau",
+                //Process
+                InitialConsultation: "Erstberatung",
+                InitialConsultationContent: "Vorbesprechung zur Klärung Ihrer Bedürfnisse",
+                ExpertAssessment: "Expertenbewertung",
+                ExpertAssessmentContent: "Umfassende Bewertung durch unsere Spezialisten",
+                CustomPlan: "Maßgeschneiderter Plan",
+                CustomPlanContent: "Entwicklung einer maßgeschneiderten Migrationsstrategie",
+                JourneyBegins: "Die Reise beginnt",
+                JourneyBeginsContent: "Implementierung und fortlaufende Unterstützung",
+                //FAQ
+                FAQs: "FAQs",
+                CommonQuestions: "Häufige Fragen",
+                CommonQuestionsContent: "Finden Sie schnelle Antworten auf häufige Anfragen zu unseren Dienstleistungen und Abläufen",
+                //FAQ Items
+                FAQItem1: "Wie lange dauert der Migrationsprozess in der Regel?",
+                FAQItem1Answer: "Die Bearbeitungszeiten variieren je nach individuellen Umständen und Zielländern. Unsere Experten erstellen personalisierte Zeitpläne, nachdem wir Ihren speziellen Fall ausgewertet haben.",
+                FAQItem2: "Was unterscheidet Heavenly Connect von anderen Agenturen?",
+                FAQItem2Answer: "Wir verbinden Fachwissen mit maßgeschneiderter Betreuung, bieten Rundum-Unterstützung und garantieren vollständige Transparenz während Ihres gesamten Prozesses.",
+                FAQItem3: "Sind meine persönlichen Daten sicher?",
+                FAQItem3Answer: "Ja, wir verwenden Unternehmensstandard-Verschlüsselung und halten strenge Datenschutzprotokolle ein, um die Vertraulichkeit Ihrer Informationen zu gewährleisten.",
+                FAQItem4: "Kann ich mich vor einer Verpflichtung beraten lassen?",
+                FAQItem4Answer: "Selbstverständlich! Wir bieten Erstanträge (Kosten: 20.000 NGN/Beratung), um Ihre Bedürfnisse zu verstehen und unseren Prozess zu erläutern.",
+                FAQItem5: "Für welche Länder bieten Sie Dienstleistungen an?",
+                FAQItem5Answer: "Wir sind derzeit auf Einwanderungsverfahren für Kanada, Deutschland, Polen, USA und Großbritannien spezialisiert. Unsere Services umfassen auch über 10 weitere Länder in Europa, Nordamerika und Ozeanien - kontaktieren Sie uns, um die Verfügbarkeit für Ihr konkretes Ziel zu bestätigen.",
+                // Calendly
+                CalendlyText: "Klicken Sie hier, um einen Termin zu vereinbaren!",
             },
         },
     },

@@ -133,10 +133,10 @@ const About = ({id}) => {
         >
             <div className="inline-flex items-center text-primary-accent mb-4">
                 <div className="h-1 w-12 line-color bg-primary-accent mr-4"></div>
-                <span className="font-semibold">Our Mission</span>
+                <span className="font-semibold">{t("OurMission")}</span>
             </div>
             <p className="text-2xl text-text-color/80 leading-relaxed mb-6">
-                "To provide expert migration guidance with clarity and confidence, offering resource-oriented solutions that combine flexibility, security, and affordability."
+                "{t("OurMissionContent")}"
             </p>
             <motion.button
                 whileHover={{ scale: 1.05 }}

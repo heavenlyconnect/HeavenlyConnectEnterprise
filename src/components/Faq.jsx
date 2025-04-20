@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { ChevronDown, HelpCircle } from 'react-feather';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const FAQ = ({id}) => {
+  const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(null);
   
   const containerVariants = {
@@ -30,24 +32,24 @@ const FAQ = ({id}) => {
 
   const faqItems = [
     {
-      question: "How long does the migration process typically take?",
-      answer: "Processing times vary based on individual circumstances and destination countries. Our experts provide personalized timelines after evaluating your specific case."
+      question: t("FAQItem1"),
+      answer: t("FAQItem1Answer")
     },
     {
-      question: "What makes Heavenly Connect different from other agencies?",
-      answer: "We combine expert knowledge with personalized service, offering end-to-end support and maintaining complete transparency throughout your journey."
+      question: t("FAQItem2"),
+      answer: t("FAQItem2Answer")
     },
     {
-      question: "Is my personal information secure?",
-      answer: "Yes, we use enterprise-grade encryption and follow strict data protection protocols to ensure your information remains confidential."
+      question: t("FAQItem3"),
+      answer: t("FAQItem3Answer")
     },
     {
-      question: "Can I consult with an expert before committing?",
-      answer: "Absolutely! We offer initial consultations(at N20,000 cost/consultation) to understand your needs and explain our process."
+      question: t("FAQItem4"),
+      answer: t("FAQItem4Answer")
     },
     {
-      question: "Which countries do you provide services for?",
-      answer: "We currently specialize in immigration processes for Canada, Germany, Poland, United States, and the United Kingdom. Our services also cover 10+ other countries across Europe, North America, and Oceania - contact us to confirm availability for your specific destination."
+      question: t("FAQItem5"),
+      answer: t("FAQItem5Answer")
     }
   ];
 
@@ -70,14 +72,14 @@ const FAQ = ({id}) => {
             <motion.div variants={itemVariants}>
               <div className="inline-flex items-center text-primary-accent mb-4">
                 <HelpCircle className="w-6 h-6 mr-2" />
-                <span className="font-semibold">FAQs</span>
+                <span className="font-semibold">{t("FAQs")}</span>
               </div>
             </motion.div>
             <motion.h2 variants={itemVariants} className="text-4xl font-bold text-text-color mb-4">
-              Common Questions
+              {t("CommonQuestions")}
             </motion.h2>
             <motion.p variants={itemVariants} className="text-xl text-text-color/80 max-w-2xl mx-auto">
-              Find quick answers to frequent inquiries about our services and processes
+              {t("CommonQuestionsContent")}
             </motion.p>
           </div>
 

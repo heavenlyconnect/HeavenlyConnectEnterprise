@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { CheckCircle, User, Shield } from 'react-feather';
+import { useTranslation } from 'react-i18next';
 
 const Commitment = ({id}) => {
+    const {t} = useTranslation();
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -41,7 +44,7 @@ const Commitment = ({id}) => {
                     variants={containerVariants}
                 >
                     <h2 className="text-4xl font-bold text-center mb-16 text-text-color">
-                        Our Core Commitments
+                        {t("OurCoreCommitments")}
                     </h2>
 
                     <motion.div
@@ -51,18 +54,18 @@ const Commitment = ({id}) => {
                         {[
                             {
                                 icon: CheckCircle,
-                                title: "Transparent Process",
-                                content: "Clear guidance at every step with no hidden surprises",
+                                title: t("TransparentProcess"),
+                                content: t("TransparentProcessContent"),
                             },
                             {
                                 icon: User,
-                                title: "Personal Support",
-                                content: "Dedicated consultant throughout your journey",
+                                title: t("PersonalSupport"),
+                                content: t("PersonalSupportContent"),
                             },
                             {
                                 icon: Shield,
-                                title: "Secure Handling",
-                                content: "Enterprise-grade data protection & privacy",
+                                title: t("SecureHandling"),
+                                content: t("SecureHandlingContent"),
                             }
                         ].map((commitment, index) => (
                             <motion.div

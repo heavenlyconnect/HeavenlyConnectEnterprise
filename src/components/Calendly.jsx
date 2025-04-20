@@ -1,7 +1,10 @@
 import React from "react";
 import { PopupWidget } from "react-calendly";
+import { useTranslation } from "react-i18next"; // Import the translation hook
 
 const Calendly = () => {
+  const { t } = useTranslation(); // Initialize translation hook
+
   return (
     <div className="App">
       <PopupWidget
@@ -11,7 +14,7 @@ const Calendly = () => {
          * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
          */
         rootElement={document.getElementById("root")}
-        text="Click here to schedule!"
+        text={t("CalendlyText")}
         textColor="#ffffff"
         color="#C87634"
       />

@@ -10,6 +10,8 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
 
+  const {t} = useTranslation(); // Initialize translation hook
+
   const { i18n } = useTranslation(); // Initialize translation hook
 
   const changeLanguage = (lang) => {
@@ -26,17 +28,17 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: 'About', path: "", section: '#about' },
-    { name: 'Commitment', path: "", section: '#commitment' },
-    { name: 'How it works', path: "", section: '#how-it-works' },
-    { name: 'Faq', path: "", section: '#faq' },
-    { name: 'Contact', path: "", section: '#contact' },
+    { name: t("AboutUs"), path: "", section: '#about' },
+    { name: t("Commitment"), path: "", section: '#commitment' },
+    { name: t("HowItWorks"), path: "", section: '#how-it-works' },
+    { name: t("Faq"), path: "", section: '#faq' },
+    { name: t("Contact"), path: "", section: '#contact' },
   ];
 
   const languageOptions = [
-    { code: 'en', label: 'English' },
-    { code: 'de', label: 'German' },
-    { code: 'fr', label: 'French' },
+    { code: 'en', label: t("English") },
+    { code: 'de', label: t("German") },
+    { code: 'fr', label: t("French") },
   ];
 
   const itemVariants = {
@@ -126,7 +128,7 @@ const Navbar = () => {
                 whileTap={{ scale: 0.98 }}
                 className="bg-gradient-to-r from-primary-accent to-hover-cta text-white px-6 py-2 rounded-full font-medium shadow-sm"
               >
-                Get Started
+                {t("GetStarted")}
               </motion.a>
             </div>
 

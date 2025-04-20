@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { MessageSquare, Calendar, FileText, Zap } from 'react-feather';
+import { useTranslation } from 'react-i18next';
 
 const Process = ({ id }) => {
+    const { t } = useTranslation();
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -27,29 +29,29 @@ const Process = ({ id }) => {
 
     const steps = [
         {
-            title: "Initial Consultation",
-            description: "Preliminary discussion to understand your needs",
+            title: t("InitialConsultation"),
+            description: t("InitialConsultationContent"),
             icon: MessageSquare,
             color: "bg-primary-accent/20",
             image: "https://res.cloudinary.com/dbr5uxfze/image/upload/v1745102157/iStock-1201798767_ujfxm9.jpg"
         },
         {
-            title: "Expert Assessment",
-            description: "Comprehensive evaluation by our specialists",
+            title: t("ExpertAssessment"),
+            description: t("ExpertAssessmentContent"),
             icon: Calendar,
             color: "bg-primary-accent/20",
             image: "https://res.cloudinary.com/dbr5uxfze/image/upload/v1745102155/iStock-1355302972_rtcisw.jpg"
         },
         {
-            title: "Custom Plan",
-            description: "Tailored migration strategy development",
+            title: t("CustomPlan"),
+            description: t("CustomPlanContent"),
             icon: FileText,
             color: "bg-primary-accent/20",
             image: "https://res.cloudinary.com/dbr5uxfze/image/upload/v1745102148/iStock-1972501160_lfwkm5.jpg"
         },
         {
-            title: "Journey Begins",
-            description: "Implementation and ongoing support",
+            title: t("JourneyBegins"),
+            description: t("JourneyBeginsContent"),
             icon: Zap,
             color: "bg-primary-accent/20",
             image: "https://res.cloudinary.com/dbr5uxfze/image/upload/v1745102156/iStock-1644224807_koltis.jpg"
@@ -75,7 +77,7 @@ const Process = ({ id }) => {
                         variants={itemVariants}
                         className="text-4xl font-bold text-center mb-16 text-text-color"
                     >
-                        How it works?
+                        {t("HowItWorks")}?
                     </motion.h2>
 
                     <div className="relative">
