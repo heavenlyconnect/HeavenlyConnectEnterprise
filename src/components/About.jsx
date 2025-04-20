@@ -116,7 +116,7 @@ const About = ({id}) => {
             transition={{ type: "spring", stiffness: 300 }}
         >
             <img 
-                src="https://res.cloudinary.com/dbr5uxfze/image/upload/v1745100631/iStock-1212241550_g3pra9.jpg" 
+                src="https://res.cloudinary.com/dbr5uxfze/image/upload/v1745102153/iStock-1212241550_yqgxcc.jpg" 
                 alt="Our team assisting clients" 
                 className="w-full h-96 object-cover"
             />

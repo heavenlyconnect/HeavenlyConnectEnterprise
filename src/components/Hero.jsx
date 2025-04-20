@@ -1,8 +1,10 @@
-// components/HeroSection.js
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'react-feather'; // You can install react-feather for icons
+import { useTranslation } from 'react-i18next';
 
 const HeroSection = () => {
+    const { t } = useTranslation(); // Initialize translation hook
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -58,9 +60,9 @@ const HeroSection = () => {
                             variants={itemVariants}
                             className="text-4xl sm:text-6xl font-bold mb-6 text-text-color leading-tight"
                         >
-                            <span className="block">Your Pathway to</span>
+                            <span className="block">{t("heroheaderOne")}</span>
                             <span className="relative inline-block">
-                                <span className="relative z-10">Global Opportunities</span>
+                                <span className="relative z-10">{t("heroheaderTwo")}</span>
                                 <motion.span
                                     initial={{ scaleX: 0 }}
                                     animate={{ scaleX: 1 }}
@@ -74,7 +76,7 @@ const HeroSection = () => {
                             variants={itemVariants}
                             className="text-xl sm:text-2xl mb-10 text-text-color/80 max-w-3xl mx-auto md:mx-0"
                         >
-                            Expert migration consulting and tailored labor solutions with a human touch
+                            {t("headerContent")}
                         </motion.p>
 
                         <motion.div variants={itemVariants} className="md:flex md:justify-start">
@@ -85,7 +87,7 @@ const HeroSection = () => {
                                 href="#contact"
                                 className="inline-flex items-center bg-primary-accent text-white px-8 py-4 rounded-lg font-medium hover:bg-hover-cta transition-all shadow-lg hover:shadow-primary-accent/30"
                             >
-                                Start Your Journey
+                                {t("StartYourJourney")}
                                 <ArrowRight className="ml-2 w-5 h-5" />
                             </motion.a>
                         </motion.div>
@@ -120,11 +122,11 @@ const HeroSection = () => {
                     className="mt-16 flex flex-wrap justify-center gap-8"
                 >
                     {[
-                        { value: "10+", label: "Countries" },
-                        { value: "98%", label: "Satisfaction Rate" },
-                        { value: "24/7", label: "Support" },
-                        { value: "100%", label: "Transparency" },
-                        { value: "5+", label: "Years of Experience" }
+                        { value: "10+", label: t("Countries") },
+                        { value: "98%", label: t("SatisfactionRate") },
+                        { value: "24/7", label: t("Support") },
+                        { value: "100%", label: t("Transparency") },
+                        { value: "5+", label: t("Experience") }
                     ].map((stat, index) => (
                         <div key={index} className="text-center">
                             <motion.p

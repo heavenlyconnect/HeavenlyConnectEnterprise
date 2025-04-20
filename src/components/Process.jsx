@@ -31,7 +31,7 @@ const Process = ({ id }) => {
             description: "Preliminary discussion to understand your needs",
             icon: MessageSquare,
             color: "bg-primary-accent/20",
-            image: "https://res.cloudinary.com/dbr5uxfze/image/upload/v1745100717/iStock-1201798767_k9h7ou.jpg"
+            image: "https://res.cloudinary.com/dbr5uxfze/image/upload/v1745102157/iStock-1201798767_ujfxm9.jpg"
         },
         {
             title: "Expert Assessment",
