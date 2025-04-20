@@ -175,10 +175,11 @@ const Navbar = () => {
                   <motion.button
                     key={lang.code}
                     whileTap={{ scale: 0.98 }}
-                    className="block w-full py-2 text-left text-text-color hover:text-primary-accent"
+                    className={lang.code === i18n.language ? 'block w-full text-left px-4 py-2 text-orange-700 font-semibold' : 'block w-full text-left px-4 py-2 text-text-color hover:text-primary-accent'}
                     onClick={() => {
                       // Handle language change
                       setMobileMenuOpen(false);
+                      changeLanguage(lang.code);
                     }}
                   >
                     {lang.label}
