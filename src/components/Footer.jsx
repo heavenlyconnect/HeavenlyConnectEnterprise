@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Facebook, Instagram, MessageCircle } from 'react-feather';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+    const { t } = useTranslation();
+
     const footerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -34,12 +37,12 @@ const Footer = () => {
     ];
 
     const quickLinks = [
-        { name: "Home", url: "#" },
-        { name: "About", url: "/#about" },
-        { name: "Commitment", url: "/#commitment" },
-        { name: "How it works", url: "/#how-it-works" },
-        { name: "FAQ", url: "/#faq" },
-        { name: "Contact", url: "/#contact" }
+        { name: t("Home"), url: "#" },
+        { name: t("AboutUs"), url: "/#about" },
+        { name: t("Commitment"), url: "/#commitment" },
+        { name: t("HowItWorks"), url: "/#how-it-works" },
+        { name: t("Faq"), url: "/#faq" },
+        { name: t("Contact"), url: "/#contact" }
     ];
 
     const contactInfo = [
@@ -66,7 +69,7 @@ const Footer = () => {
                             </span>
                         </h3>
                         <p className="mb-6 text-gray-400">
-                            Your trusted partner for global migration and labor solutions with a human touch.
+                            {t("FooterContent")}
                         </p>
                         <p>#TheWayToOpportunities</p>
                         <div className="flex space-x-4">
@@ -154,9 +157,9 @@ const Footer = () => {
                     className="border-t border-secondary/50 mt-12 pt-8 text-center text-gray-500 text-sm"
                 >
                     <p>
-                        © {new Date().getFullYear()} HeavenlyConnect. All rights reserved. |
-                        <a href="privacy-policy" className="hover:text-primary-accent ml-2">Privacy Policy</a> |
-                        <a href="terms" className="hover:text-primary-accent ml-2">Terms of Service</a>
+                        © {new Date().getFullYear()} HeavenlyConnect. {t("AllRightsReserved")} |
+                        <a href="privacy-policy" className="hover:text-primary-accent ml-2">{t("PrivacyPolicy")}</a> |
+                        <a href="terms" className="hover:text-primary-accent ml-2">{t("TermsOfService")}</a>
                     </p>
                 </motion.div>
             </div>

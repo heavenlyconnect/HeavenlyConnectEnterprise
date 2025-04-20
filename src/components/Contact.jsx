@@ -5,19 +5,28 @@ import emailjs from '@emailjs/browser';
 import * as yup from 'yup';
 import { Mail, Phone, User, ChevronRight } from 'react-feather';
 import toast, { Toaster } from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
-const schema = yup.object().shape({
-    name: yup.string().required('Name is required'),
-    email: yup.string().email('Valid email required').required('Email is required'),
-    phone: yup.string()
-        .matches(/^0\d{9,11}$/, 'Valid phone number required')
-        .required('Phone is required'),
-    message: yup.string().max(300, 'Max 300 characters')
-});
+// Create validation schema factory
+const getValidationSchema = (t) => {
+    return yup.object().shape({
+      name: yup.string().required(t('NameRequired')),
+      email: yup.string()
+        .email(t('ValidEmailRequired'))
+        .required(t('EmailRequired')),
+      phone: yup.string()
+        .matches(/^0\d{9,11}$/, t('ValidPhoneRequired'))
+        .required(t('PhoneRequired')),
+      message: yup.string()
+      .required(t('MessageRequired')).max(300, t('MaxCharacters', { max: 300 })),
+    });
+  };
 
 const ContactForm = ({id}) => {
+    const { t } = useTranslation();
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
-        resolver: yupResolver(schema)
+        resolver: yupResolver(getValidationSchema(t)),
     });
 
     const onSubmit = (data) => {
@@ -40,9 +49,9 @@ const ContactForm = ({id}) => {
 
             emailjs.send(serviceid, templateid, templateParams, publickey)
                 .then((response) => {
-                    toast.success('Email sent successfully! We will contact you shortly.', {
+                    toast.success(t("SuccessMessage"), {
                         duration: 4000,
-                        position: 'top-center',
+                        position: 'top-right',
                         style: {
                             background: '#4f46e5',
                             color: '#fff',
@@ -58,9 +67,9 @@ const ContactForm = ({id}) => {
                     reset();
                 })
                 .catch((error) => {
-                    toast.error("Can't send email at this time, Please try again at another time...", {
+                    toast.error(t("ErrorMessage"), {
                         duration: 4000,
-                        position: 'top-center',
+                        position: 'top-right',
                         style: {
                             background: '#f87171',
                             color: '#fff',
@@ -76,10 +85,9 @@ const ContactForm = ({id}) => {
                     reset();
                 })
         } catch (error) {
-            console.error('Error submitting form:', error);
-            toast.error('Error submitting form. Please try again.', {
+            toast.error(t("ErrorMessage"), {
                 duration: 4000,
-                position: 'top-center',
+                position: 'top-right',
                 style: {
                     background: '#f87171',
                     color: '#fff',
@@ -128,8 +136,8 @@ const ContactForm = ({id}) => {
                     className="bg-white p-8 rounded-lg shadow-sm border border-gray-100"
                 >
                     <motion.div variants={item} className="mb-8 text-center">
-                        <h2 className="text-2xl font-light text-gray-800 mb-2">Let's Connect</h2>
-                        <p className="text-gray-500">We'll respond within one business day</p>
+                        <h2 className="text-2xl font-light text-gray-800 mb-2">{t("LetsConnect")}</h2>
+                        <p className="text-gray-500">{t("ContactUsMessage")}</p>
                     </motion.div>
 
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -138,8 +146,8 @@ const ContactForm = ({id}) => {
                                 <User className="absolute left-3 top-3.5 h-4 w-4 text-gray-400" />
                                 <input
                                     {...register("name")}
-                                    className={`w-full pl-10 pr-4 py-2 border-b ${errors.name ? 'border-red-300' : 'border-gray-200'} focus:border-gray-400 focus:outline-none bg-transparent`}
-                                    placeholder="Full name"
+                                    className={`w-full ps-10 pr-4 input-padding py-2 border-b ${errors.name ? 'border-red-300' : 'border-gray-200'} focus:border-gray-400 focus:outline-none bg-transparent`}
+                                    placeholder={t("FullName")}
                                 />
                                 {errors.name && (
                                     <motion.p
@@ -158,8 +166,8 @@ const ContactForm = ({id}) => {
                                 <Mail className="absolute left-3 top-3.5 h-4 w-4 text-gray-400" />
                                 <input
                                     {...register("email")}
-                                    className={`w-full pl-10 pr-4 py-2 border-b ${errors.email ? 'border-red-300' : 'border-gray-200'} focus:border-gray-400 focus:outline-none bg-transparent`}
-                                    placeholder="Email address"
+                                    className={`w-full pl-10 input-padding pr-4 py-2 border-b ${errors.email ? 'border-red-300' : 'border-gray-200'} focus:border-gray-400 focus:outline-none bg-transparent`}
+                                    placeholder={t("EmailAddress")}
                                 />
                                 {errors.email && (
                                     <motion.p className="text-xs text-red-500 mt-1">
@@ -174,8 +182,8 @@ const ContactForm = ({id}) => {
                                 <Phone className="absolute left-3 top-3.5 h-4 w-4 text-gray-400" />
                                 <input
                                     {...register("phone")}
-                                    className={`w-full pl-10 pr-4 py-2 border-b ${errors.phone ? 'border-red-300' : 'border-gray-200'} focus:border-gray-400 focus:outline-none bg-transparent`}
-                                    placeholder="Phone number"
+                                    className={`w-full pl-10 input-padding pr-4 py-2 border-b ${errors.phone ? 'border-red-300' : 'border-gray-200'} focus:border-gray-400 focus:outline-none bg-transparent`}
+                                    placeholder={t("PhoneNumber")}
                                 />
                                 {errors.phone && (
                                     <motion.p className="text-xs text-red-500 mt-1">
@@ -190,7 +198,7 @@ const ContactForm = ({id}) => {
                                 {...register("message")}
                                 rows="3"
                                 className={`w-full px-4 py-2 border-b ${errors.message ? 'border-red-300' : 'border-gray-200'} focus:border-gray-400 focus:outline-none bg-transparent`}
-                                placeholder="Your message..."
+                                placeholder={t("Message")}
                             ></textarea>
                             {errors.message && (
                                 <motion.p className="text-xs text-red-500 mt-1">
@@ -206,7 +214,7 @@ const ContactForm = ({id}) => {
                                 type="submit"
                                 className="w-full flex items-center justify-center gap-2 py-3 px-6 border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors rounded-lg"
                             >
-                                Send Message
+                                {t("SendMessage")}
                                 <ChevronRight className="w-4 h-4" />
                             </motion.button>
                         </motion.div>

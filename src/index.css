@@ -37,6 +37,10 @@ h2, h4 {
   transition: color 0.3s ease;
 }
 
+.input-padding {
+  padding-left: 35px;
+}
+
 /* Buttons */
 .btn-primary {
   background-color: var(--primary-accent);

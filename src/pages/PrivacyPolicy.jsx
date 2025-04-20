@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useTranslation } from 'react-i18next';
 
 const PrivacyPolicy = () => {
+  const { t } = useTranslation();
   const sectionVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -24,9 +26,9 @@ const PrivacyPolicy = () => {
           className="mb-16 text-center"
         >
           <h1 className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
-            Privacy Policy
+            {t('PrivacyPolicy')}
           </h1>
-          <p className="mt-4 text-gray-400">Last updated: 2025-02-02</p>
+          <p className="mt-4 text-gray-400">{t("LastUpdated")}</p>
         </motion.div>
 
         <div className="space-y-12 text-gray-300">
@@ -38,10 +40,9 @@ const PrivacyPolicy = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-2xl font-semibold text-white mb-4">Introduction</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">{t("Introduction")}</h2>
             <p className="leading-relaxed">
-              At Heavenly Connect Enterprise Immigration Services, we are committed to protecting your privacy. This policy outlines how we collect, 
-              use, and safeguard your personal information in accordance with international data protection regulations.
+              {t("IntroductionContent")}
             </p>
           </motion.section>
 
@@ -53,12 +54,12 @@ const PrivacyPolicy = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h2 className="text-2xl font-semibold text-white mb-4">Information We Collect</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">{t("InformationWeCollect")}</h2>
             <ul className="space-y-3 list-disc list-inside">
-              <li>Personal identification information (Name, date of birth, passport details)</li>
-              <li>Contact information (Email address, phone number, physical address)</li>
-              <li>Immigration-related documents (Employment records, educational certificates)</li>
-              <li>Payment information for service fees</li>
+              <li>{t("InformationWeCollectContent1")}</li>
+              <li>{t("InformationWeCollectContent2")}</li>
+              <li>{t("InformationWeCollectContent3")}</li>
+              <li>{t("InformationWeCollectContent4")}</li>
             </ul>
           </motion.section>
 
@@ -70,15 +71,15 @@ const PrivacyPolicy = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h2 className="text-2xl font-semibold text-white mb-4">How We Use Your Information</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">{t("HowWeUseInfo")}</h2>
             <div className="space-y-4">
-              <p>We use your personal data to:</p>
+              <p>{t("WeUsePIITo")}</p>
               <ul className="space-y-2 list-disc list-inside">
-                <li>Prepare and submit immigration applications</li>
-                <li>Communicate with government authorities</li>
-                <li>Provide updates on application status</li>
-                <li>Process payments and issue invoices</li>
-                <li>Improve our services</li>
+                <li>{t("HowWeUseInfo1")}</li>
+                <li>{t("HowWeUseInfo2")}</li>
+                <li>{t("HowWeUseInfo3")}</li>
+                <li>{t("HowWeUseInfo4")}</li>
+                <li>{t("HowWeUseInfo5")}</li>
               </ul>
             </div>
           </motion.section>
@@ -91,15 +92,15 @@ const PrivacyPolicy = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h2 className="text-2xl font-semibold text-white mb-4">Data Sharing</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">{t("DataSharing")}</h2>
             <p className="mb-3">
-              We only share your information with:
+              {t("WeShareWith")}
             </p>
             <ul className="space-y-2 list-disc list-inside">
-              <li>Government immigration authorities</li>
-              <li>Accredited translation services</li>
-              <li>Legal representatives (when required)</li>
-              <li>Secure payment processors</li>
+              <li>{t("DataSharing1")}</li>
+              <li>{t("DataSharing2")}</li>
+              <li>{t("DataSharing3")}</li>
+              <li>{t("DataSharing4")}</li>
             </ul>
           </motion.section>
 
@@ -111,11 +112,9 @@ const PrivacyPolicy = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <h2 className="text-2xl font-semibold text-white mb-4">Data Security</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">{t("DataSecurity")}</h2>
             <p className="leading-relaxed">
-              We implement industry-standard security measures including SSL encryption, secure cloud storage, 
-              and restricted access to sensitive data. Regular security audits ensure continued protection of 
-              your information.
+              {t("DataSecurityContent")}
             </p>
           </motion.section>
 
@@ -128,11 +127,11 @@ const PrivacyPolicy = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="pt-8 border-t border-gray-700"
           >
-            <h2 className="text-2xl font-semibold text-white mb-4">Contact Us</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">{t("ContactUs")}</h2>
             <p className="text-gray-400">
-              For privacy-related inquiries, contact our Data Protection Officer at:<br />
+              {t("ContactUsContent")}<br />
               <a href="mailto:privacy@heavenlyconnectenterprise.com" className="text-orange-500 hover:text-orange-400">
-                privacy@heavenlyconnectenterprise.com
+                {t("ContactEmail")}
               </a>
             </p>
           </motion.section>
