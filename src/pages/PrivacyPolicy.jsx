@@ -131,7 +131,7 @@ const PrivacyPolicy = () => {
             <p className="text-gray-400">
               {t("ContactUsContent")}<br />
               <a href="mailto:privacy@heavenlyconnectenterprise.com" className="text-orange-500 hover:text-orange-400">
-                {t("ContactEmail")}
+                {t("PrivacyEmail")}
               </a>
             </p>
           </motion.section>

@@ -11,19 +11,19 @@ import { t } from 'i18next';
 // Create validation schema factory
 const getValidationSchema = (t) => {
     return yup.object().shape({
-      name: yup.string().required(t('NameRequired')),
-      email: yup.string()
-        .email(t('ValidEmailRequired'))
-        .required(t('EmailRequired')),
-      phone: yup.string()
-        .matches(/^0\d{9,11}$/, t('ValidPhoneRequired'))
-        .required(t('PhoneRequired')),
-      message: yup.string()
-      .required(t('MessageRequired')).max(300, t('MaxCharacters', { max: 300 })),
+        name: yup.string().required(t('NameRequired')),
+        email: yup.string()
+            .email(t('ValidEmailRequired'))
+            .required(t('EmailRequired')),
+        phone: yup.string()
+            .matches(/^0\d{9,11}$/, t('ValidPhoneRequired'))
+            .required(t('PhoneRequired')),
+        message: yup.string()
+            .required(t('MessageRequired')).max(300, t('MaxCharacters', { max: 300 })),
     });
-  };
+};
 
-const ContactForm = ({id}) => {
+const ContactForm = ({ id }) => {
     const { t } = useTranslation();
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(getValidationSchema(t)),
@@ -31,10 +31,9 @@ const ContactForm = ({id}) => {
 
     const onSubmit = (data) => {
         try {
-            console.log(data);
-            const serviceid = "";
-            const templateid = "";
-            const publickey = "";
+            const serviceid = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+            const templateid = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+            const publickey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
             //Create a new object that contains dynamic string params
             const templateParams = {
@@ -44,8 +43,6 @@ const ContactForm = ({id}) => {
                 to_name: "Bethina Akeni",
                 message: data.message
             }
-
-            console.log("Form", templateParams);
 
             emailjs.send(serviceid, templateid, templateParams, publickey)
                 .then((response) => {

@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useTranslation } from 'react-i18next';
 
 const TermsOfService = () => {
+  const { t } = useTranslation();
   const sectionVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -24,9 +26,9 @@ const TermsOfService = () => {
           className="mb-16 text-center"
         >
           <h1 className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
-            Terms of Service
+            {t('TermsOfService')}
           </h1>
-          <p className="mt-4 text-gray-400">Effective Date: 2025-02-02</p>
+          <p className="mt-4 text-gray-400">{t("EffectiveDate")}</p>
         </motion.div>
 
         <div className="space-y-12 text-gray-300">
@@ -38,10 +40,9 @@ const TermsOfService = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-2xl font-semibold text-white mb-4">1. Acceptance of Terms</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">{t("TermsSection1Title")}</h2>
             <p className="leading-relaxed">
-              By engaging with Heavenly Connect Enterprise Immigration Services, you agree to be bound by these Terms of Service. 
-              These terms govern your use of our immigration consultation and application processing services.
+              {t("TermsSection1Content")}
             </p>
           </motion.section>
 
@@ -53,13 +54,13 @@ const TermsOfService = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h2 className="text-2xl font-semibold text-white mb-4">2. Our Services</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">{t("TermsSection2Title")}</h2>
             <ul className="space-y-3 list-disc list-inside">
-              <li>Immigration consultation and eligibility assessment</li>
-              <li>Visa and residency application preparation</li>
-              <li>Documentation review and certification</li>
-              <li>Government liaison services</li>
-              <li>Post-arrival settlement assistance</li>
+              <li>{t("Service1")}</li>
+              <li>{t("Service2")}</li>
+              <li>{t("Service3")}</li>
+              <li>{t("Service4")}</li>
+              <li>{t("Service5")}</li>
             </ul>
           </motion.section>
 
@@ -71,14 +72,14 @@ const TermsOfService = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h2 className="text-2xl font-semibold text-white mb-4">3. Client Obligations</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">{t("TermsSection3Title")}</h2>
             <div className="space-y-4">
               <ul className="space-y-2 list-disc list-inside">
-                <li>Provide accurate and complete documentation</li>
-                <li>Disclose all relevant personal information</li>
-                <li>Timely payment of service fees</li>
-                <li>Compliance with government requirements</li>
-                <li>Prompt response to information requests</li>
+                <li>{t("Obligation1")}</li>
+                <li>{t("Obligation2")}</li>
+                <li>{t("Obligation3")}</li>
+                <li>{t("Obligation4")}</li>
+                <li>{t("Obligation5")}</li>
               </ul>
             </div>
           </motion.section>
@@ -91,12 +92,12 @@ const TermsOfService = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h2 className="text-2xl font-semibold text-white mb-4">4. Fees & Payments</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">{t("TermsSection4Title")}</h2>
             <ul className="space-y-2 list-disc list-inside">
-              <li>Service fees are non-refundable once processing begins</li>
-              <li>Government fees are separate and client's responsibility</li>
-              <li>Late payments may result in service suspension</li>
-              <li>All fees quoted in [Currency]</li>
+            <li>{t("FeesContent1")}</li>
+            <li>{t("FeesContent2")}</li>
+            <li>{t("FeesContent3")}</li>
+            <li>{t("FeesContent4")}</li>
             </ul>
           </motion.section>
 
@@ -108,11 +109,9 @@ const TermsOfService = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <h2 className="text-2xl font-semibold text-white mb-4">5. Service Limitations</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">{t("TermsSection5Title")}</h2>
             <p className="leading-relaxed">
-              While we strive for successful outcomes, Heavenly Connect Enterprise cannot guarantee visa approvals 
-              or specific processing timelines. Final decisions remain at the discretion of 
-              government immigration authorities.
+              {t("ServiceLimitationsContent")}
             </p>
           </motion.section>
 
@@ -125,14 +124,13 @@ const TermsOfService = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="pt-8 border-t border-gray-700"
           >
-            <h2 className="text-2xl font-semibold text-white mb-4">6. Governing Law</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">{t("TermsSection6Title")}</h2>
             <p className="text-gray-400">
-              These terms shall be governed by the laws of [Your Country]. Any disputes shall 
-              be resolved through arbitration in [City, Country].
+              {t("GoverningLawContent")}
               <br /><br />
-              For questions: 
+              {t("ContactQuestions")}
               <a href="mailto:legal@heavenlyconnectenterprise.com" className="text-orange-500 hover:text-orange-400 ml-2">
-                legal@heavenlyconnectenterprise.com
+                {t("LegalEmail")}
               </a>
             </p>
           </motion.section>
