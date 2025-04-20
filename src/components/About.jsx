@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { Users, Globe, Shield, Heart } from 'react-feather';
+import { useTranslation } from 'react-i18next';
 
 const About = ({id}) => {
+    const {t} = useTranslation();
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -50,10 +52,10 @@ const About = ({id}) => {
                         className="md:col-span-1 space-y-6"
                     >
                         <h2 className="text-4xl font-bold text-text-color">
-                            About Us
+                            {t("AboutUs")}
                         </h2>
                         <p className="text-lg text-text-color/80">
-                            We believe work should be fulfilling and collaborative, creating value for both employers and employees.
+                            {t("AboutUsContent")}
                         </p>
                         <div className="h-1 w-20 line-color bg-primary-accent rounded-full"></div>
                     </motion.div>
@@ -66,23 +68,23 @@ const About = ({id}) => {
                         {[
                             {
                                 icon: Globe,
-                                title: "Global Solutions",
-                                content: "Customized consulting and creative solutions spanning 25+ countries"
+                                title: t("GlobalSolutions"),
+                                content: t("GlobalSolutionsContent")
                             },
                             {
                                 icon: Users,
-                                title: "Collaborative Approach",
-                                content: "Promoting genuine collaboration between people and companies"
+                                title: t("CollaborativeApproach"),
+                                content: t("CollaborativeApproachContent")
                             },
                             {
                                 icon: Shield,
-                                title: "Secure Opportunities",
-                                content: "Developing secure, enriching jobs tailored to individual needs"
+                                title: t("SecureOpportunities"),
+                                content: t("SecureOpportunitiesContent")
                             },
                             {
                                 icon: Heart,
-                                title: "Our Commitment",
-                                content: "Quality through transparency, reliability, and flexible solutions"
+                                title: t("OurCommitment"),
+                                content: t("OurCommitmentContent")
                             }
                         ].map((feature, index) => (
                             <motion.div
