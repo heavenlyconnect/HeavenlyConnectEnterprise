@@ -104,7 +104,7 @@ const HeroSection = () => {
                     >
                         <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                             <img
-                                src="https://res.cloudinary.com/dbr5uxfze/image/upload/v1745102152/iStock-1204743098_fwcge2.jpg"
+                                src="https://res.cloudinary.com/dbr5uxfze/image/upload/v1745231150/iStock-1204743098_m8mfeo.jpg"
                                 alt="Global opportunities illustration"
                                 className="w-full h-auto object-cover rounded-2xl"
                             />
@@ -124,9 +124,7 @@ const HeroSection = () => {
                     {[
                         { value: "10+", label: t("Countries") },
                         { value: "98%", label: t("SatisfactionRate") },
-                        { value: "24/7", label: t("Support") },
                         { value: "100%", label: t("Transparency") },
-                        { value: "5+", label: t("Experience") }
                     ].map((stat, index) => (
                         <div key={index} className="text-center">
                             <motion.p

@@ -38,7 +38,7 @@ const Navbar = () => {
   const languageOptions = [
     { code: 'en', label: t("English") },
     { code: 'de', label: t("German") },
-    { code: 'fr', label: t("French") },
+    // { code: 'fr', label: t("French") },
   ];
 
   const itemVariants = {
