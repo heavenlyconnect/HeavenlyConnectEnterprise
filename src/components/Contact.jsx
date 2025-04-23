@@ -7,6 +7,7 @@ import { Mail, Phone, User, ChevronRight } from 'react-feather';
 import toast, { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { t } from 'i18next';
+import { useState } from 'react';
 
 // Create validation schema factory
 const getValidationSchema = (t) => {
@@ -28,59 +29,60 @@ const ContactForm = ({ id }) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(getValidationSchema(t)),
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const onSubmit = (data) => {
+    const Spinner = () => (
+        <svg className="animate-spin h-5 w-5 text-current" viewBox="0 0 24 24">
+            <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+                fill="none"
+            />
+            <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            />
+        </svg>
+    );
+
+    const onSubmit = async (data) => {
+        setIsSubmitting(true);
         try {
             const serviceid = import.meta.env.VITE_EMAILJS_SERVICE_ID;
             const templateid = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
             const publickey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-            
-            //Create a new object that contains dynamic string params
-            const templateParams = {
-                name: data.name,
-                email: data.email,
-                phone: data.phone,
-                time: new Date().toLocaleString(),
-                message: data.message
-            }
 
-            emailjs.send(serviceid, templateid, templateParams, publickey)
-                .then((response) => {
-                    toast.success(t("SuccessMessage"), {
-                        duration: 4000,
-                        position: 'top-right',
-                        style: {
-                            background: '#4f46e5',
-                            color: '#fff',
-                            padding: '16px',
-                            borderRadius: '8px',
-                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
-                        },
-                        iconTheme: {
-                            primary: '#fff',
-                            secondary: '#4f46e5',
-                        },
-                    });
-                    reset();
-                })
-                .catch((error) => {
-                    toast.error(t("ErrorMessage"), {
-                        duration: 4000,
-                        position: 'top-right',
-                        style: {
-                            background: '#f87171',
-                            color: '#fff',
-                            padding: '16px',
-                            borderRadius: '8px',
-                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
-                        },
-                        iconTheme: {
-                            primary: '#fff',
-                            secondary: '#f87171',
-                        },
-                    });
-                    reset();
-                })
+            const templateParams = {
+                from_name: data.name,
+                to_email: data.email,
+                phone: data.phone,
+                to_name: "Bethina Akeni",
+                message: data.message
+            };
+
+            await emailjs.send(serviceid, templateid, templateParams, publickey);
+
+            toast.success(t("SuccessMessage"), {
+                duration: 4000,
+                position: 'top-right',
+                style: {
+                    background: '#4f46e5',
+                    color: '#fff',
+                    padding: '16px',
+                    borderRadius: '8px',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+                },
+                iconTheme: {
+                    primary: '#fff',
+                    secondary: '#4f46e5',
+                },
+            });
+            reset();
         } catch (error) {
             toast.error(t("ErrorMessage"), {
                 duration: 4000,
@@ -97,9 +99,9 @@ const ContactForm = ({ id }) => {
                     secondary: '#f87171',
                 },
             });
-            reset();
-            return;
-        };
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const container = {
@@ -209,10 +211,17 @@ const ContactForm = ({ id }) => {
                                 whileHover={{ scale: 1.01 }}
                                 whileTap={{ scale: 0.99 }}
                                 type="submit"
-                                className="w-full flex items-center justify-center gap-2 py-3 px-6 border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors rounded-lg"
+                                disabled={isSubmitting}
+                                className="w-full flex items-center justify-center gap-2 py-3 px-6 border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                {t("SendMessage")}
-                                <ChevronRight className="w-4 h-4" />
+                                {isSubmitting ? (
+                                    <Spinner />
+                                ) : (
+                                    <>
+                                        {t("SendMessage")}
+                                        <ChevronRight className="w-4 h-4" />
+                                    </>
+                                )}
                             </motion.button>
                         </motion.div>
                     </form>
