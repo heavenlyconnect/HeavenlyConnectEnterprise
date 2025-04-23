@@ -34,13 +34,13 @@ const ContactForm = ({ id }) => {
             const serviceid = import.meta.env.VITE_EMAILJS_SERVICE_ID;
             const templateid = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
             const publickey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
+            
             //Create a new object that contains dynamic string params
             const templateParams = {
-                from_name: data.name,
-                to_email: data.email,
+                name: data.name,
+                email: data.email,
                 phone: data.phone,
-                to_name: "Bethina Akeni",
+                time: new Date().toLocaleString(),
                 message: data.message
             }
 

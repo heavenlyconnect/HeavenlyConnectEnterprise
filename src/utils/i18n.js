@@ -8,7 +8,7 @@ import FAQ from "../components/Faq";
 
 i18n.use(LanguageDetector).use(initReactI18next).init({
     // debug: true,
-    lng: "en",
+    // lng: "en",
     fallbackLng: "en",
     resources: {
         en: {
