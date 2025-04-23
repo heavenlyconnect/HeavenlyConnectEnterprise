@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, time } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import emailjs from '@emailjs/browser';
@@ -58,10 +58,10 @@ const ContactForm = ({ id }) => {
             const publickey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
             const templateParams = {
-                from_name: data.name,
-                to_email: data.email,
+                name: data.name,
+                email: data.email,
                 phone: data.phone,
-                to_name: "Bethina Akeni",
+                time: new Date().toLocaleString(),
                 message: data.message
             };
 
